@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Tarjeta | A-Frame</title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="https://rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs>
-        <!-- Marcador Hiro -->
         <a-marker preset="hiro">
-            <!-- Sección 1: Título -->
-            <a-text value="Omar Cardenas" position="-3 1 0" color="#212f3d" scale="1.8 1.8 1"></a-text>
-
-            <!-- Sección 2: Descripción con fondo -->
-            <a-plane position="0 0.5 0" width="3.5" height="1.2" color="black" opacity="0.8"></a-plane>
-            <a-text value="Profesional en tecnología con experiencia en desarrollo y soporte tecnológico. Habilidades en análisis de datos, administración de plataformas y optimización de procesos." 
-                position="-1.7 0.5 0" 
-                color="white" 
-                scale="1.4 1.4 1" 
-                width="3.2" 
-                wrap-count="45">
-            </a-text>
-
-            <!-- Sección 3: Información de Contacto -->
-            <a-text value="📞 6531462311" position="2.5 1 0" color="black" scale="0.8 0.8 1"></a-text>
-            <a-text value="✉️ omarcardenas0192@gmail.com" position="2.5 0.5 0" color="black" scale="0.8 0.8 1"></a-text>
-            <a-text value="🌐 https://untalomarcardenas.github.io/" position="2.5 0 0" color="black" scale="0.8 0.8 1"></a-text>
+            <a-entity position="0 0 0" scale="0.5 0.5 0.5" rotation="0 180 0" 
+                      gltf-model="https://cdn.glitch.global/12345678-90ab-cdef-1234-567890abcdef/laptop.glb?v=1690000000000">
+            </a-entity>
         </a-marker>
-
-        <!-- Cámara AR -->
         <a-entity camera></a-entity>
     </a-scene>
 </body>
