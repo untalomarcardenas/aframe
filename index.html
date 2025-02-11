@@ -1,17 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <!-- Incluye la versión más reciente de A-Frame -->
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <!-- Incluye la versión más reciente de AR.js para A-Frame -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarjeta de Presentación AR</title>
+  <!-- Incluir A-Frame y AR.js -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    a-scene {
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
 </head>
-<body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs>
-        <a-marker preset="hiro">
-            <a-text value="Hola" position="0 0 0" scale="2 2 2" color="red"></a-text>
-        </a-marker>
-        <a-entity camera></a-entity>
-    </a-scene>
+<body>
+  <!-- Escena de A-Frame con AR.js -->
+  <a-scene arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+
+    <!-- Marcador hiro -->
+    <a-marker type='pattern' url='https://jeromeetienne.github.io/AR.js/data/images/hiro.patt'>
+
+      <!-- Modelo 3D de una laptop -->
+      <a-entity
+        gltf-model="https://cdn.glitch.global/2b28b9b7-7a2a-4b0a-8b6a-8b6b6b6b6b6b/laptop.glb"
+        scale="0.1 0.1 0.1"
+        position="0 0.5 0"
+        rotation="0 0 0">
+      </a-entity>
+
+      <!-- Tarjeta de presentación -->
+      <a-entity position="0 1.5 0" rotation="0 0 0">
+        <!-- Fondo de la tarjeta -->
+        <a-plane color="#FFFFFF" width="2" height="1" position="0 0.5 0"></a-plane>
+        <!-- Textos con tus datos personales -->
+        <a-text value="Nombre: Tu Nombre" color="#000000" position="-0.8 0.8 0.1" scale="1.5 1.5 1.5"></a-text>
+        <a-text value="Descripción: Tu Descripción" color="#000000" position="-0.8 0.5 0.1" scale="1.2 1.2 1.2"></a-text>
+        <a-text value="Teléfono: 123-456-7890" color="#000000" position="-0.8 0.2 0.1" scale="1.2 1.2 1.2"></a-text>
+        <a-text value="Correo: tu@email.com" color="#000000" position="-0.8 -0.1 0.1" scale="1.2 1.2 1.2"></a-text>
+        <a-text value="Website: www.tusitio.com" color="#000000" position="-0.8 -0.4 0.1" scale="1.2 1.2 1.2"></a-text>
+      </a-entity>
+
+    </a-marker>
+
+    <!-- Cámara -->
+    <a-entity camera></a-entity>
+
+  </a-scene>
 </body>
 </html>
